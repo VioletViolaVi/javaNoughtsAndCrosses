@@ -43,6 +43,8 @@ public class NoughtsAndCrosses implements ActionListener {
         title_panel.add(textfield);
         frame.add(title_panel, BorderLayout.NORTH);
         frame.add(button_panel);
+
+        firstTurn();
     }
 
     @Override
@@ -51,7 +53,21 @@ public class NoughtsAndCrosses implements ActionListener {
     }
 
     public void firstTurn(){
+        // shows "Noughts & Crosses title first b4 "X-turn/O-turn
+        try {
+            // title changes after 3 seconds
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        if (random.nextInt(2) == 0) {
+            player1_turn = true;
+            textfield.setText("X turn");
+        } else {
+            player1_turn = false;
+            textfield.setText("O turn");
+        }
     }
 
     public void check(){
